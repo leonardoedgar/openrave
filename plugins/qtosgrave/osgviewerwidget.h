@@ -146,6 +146,7 @@ public:
     void StopTrackNode();
 
     osg::Camera *GetCamera();
+    bool IsInOrthoMode();
 
     osg::ref_ptr<osgGA::CameraManipulator> GetCurrentCameraManipulator();
     void SetCurrentCameraManipulator(osgGA::CameraManipulator* manipulator);
