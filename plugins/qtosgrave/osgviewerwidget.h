@@ -149,8 +149,8 @@ public:
 
     osg::ref_ptr<osgGA::CameraManipulator> GetCurrentCameraManipulator();
     void SetCurrentCameraManipulator(osgGA::CameraManipulator* manipulator);
-    double GetCurrentManipulatorDistanceToFocus();
     void SetCurrentManipulatorDistanceToFocus(double distance);
+    double GetCurrentManipulatorDistanceToFocus();
 
     void RestoreDefaultManipulator();
     osg::ref_ptr<osgGA::TrackballManipulator> GetDefaultCameraManipulator();
@@ -318,6 +318,7 @@ protected:
     double _zNear; ///< In OSG, znear and zfar are updated by CullVisitor, which
                    ///  causing getProjectionMatrixAsXXX to return negative
                    ///  values. Therefore, we manage zNear ourselves
+    double _currentOrthoFrustumSize;
 
     void GetSwitchedButtonValue(unsigned int &button);
 };
