@@ -103,7 +103,7 @@ public:
     virtual void Move(int x, int y);
 
     /// \brief sets the zoom factor. only affects orthogonal view
-    /// \param factor > 1.0 = MoveCameraZoom in. < 1.0 = MoveCameraZoom out
+    /// \param factor > 1.0 = zoom in. < 1.0 = zoom out
     virtual void MoveCameraZoom(float factor, bool isPan);
 
     /// \brief Set title of the viewer window
