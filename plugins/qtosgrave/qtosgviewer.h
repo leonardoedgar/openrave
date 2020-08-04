@@ -103,8 +103,8 @@ public:
     virtual void Move(int x, int y);
 
     /// \brief sets the zoom factor. only affects orthogonal view
-    /// \param factor > 1.0 = Zoom in. < 1.0 = Zoom out
-    virtual void Zoom(float factor);
+    /// \param factor > 1.0 = MoveCameraZoom in. < 1.0 = MoveCameraZoom out
+    virtual void MoveCameraZoom(float factor, bool isPan);
 
     /// \brief Set title of the viewer window
     virtual void SetName(const string& name);
@@ -339,11 +339,11 @@ public:
     virtual void _SetBkgndColor(const RaveVector<float>& color);
 
     virtual void _SetName(const std::string& name);
-    virtual void _Zoom(float factor);
     virtual void _RotateCameraXDirection(float thetaX);
     virtual void _RotateCameraYDirection(float thetaY);
     virtual void _PanCameraXDirection(float dx);
     virtual void _PanCameraYDirection(float dy);
+    virtual void _MoveCameraZoom(float factor, bool isPan);
 
     /// \brief posts a function to be executed in the GUI thread
     ///
@@ -390,11 +390,11 @@ public:
     bool _SetTrackingAngleToUpCommand(ostream& sout, istream& sinput);
     bool _StartViewerLoopCommand(ostream& sout, istream& sinput);
     bool _SetProjectionModeCommand(ostream& sout, istream& sinput);
-    bool _ZoomCommand(ostream& sout, istream& sinput);
     bool _RotateCameraXDirectionCommand(ostream& sout, istream& sinput);
     bool _RotateCameraYDirectionCommand(ostream& sout, istream& sinput);
     bool _PanCameraXDirectionCommand(ostream& sout, istream& sinput);
     bool _PanCameraYDirectionCommand(ostream& sout, istream& sinput);
+    bool _MoveCameraZoomCommand(ostream& sout, istream& sinput);
 
     //@{ Message Queue
     list<GUIThreadFunctionPtr> _listGUIFunctions; ///< list of GUI functions that should be called in the viewer update thread. protected by _mutexGUIFunctions
